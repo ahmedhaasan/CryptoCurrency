@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.example.cryptocurrencyy"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.cryptocurrencyy"
@@ -83,5 +83,9 @@ dependencies {
     implementation ("androidx.navigation:navigation-compose:2.8.5")
     // Hilt navigation for Compose
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    // for flow row which wrap elements if the exceeded the width
+    implementation ("com.google.accompanist:accompanist-flowlayout:0.36.0")
+
 }
 
