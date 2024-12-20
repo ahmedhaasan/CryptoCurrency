@@ -1,7 +1,9 @@
 package com.example.cryptocurrencyy.presentation.coin_details
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.cryptocurrency.common.Constants.PARAM_COIN_ID
 import com.example.cryptocurrencyy.common.Resource
 import com.example.cryptocurrencyy.domain.use_case.get_coins.GetCoinsUseCase
 import com.example.cryptocurrencyy.domain.use_case.get_single_coin.GetSingleCoinUseCase
@@ -21,11 +23,17 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class CoinDetailViewModel @Inject constructor(
-    private val getSingleCoinUseCase: GetSingleCoinUseCase
+    private val getSingleCoinUseCase: GetSingleCoinUseCase,
+     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _state = MutableStateFlow(CoinDetailState())
     val state = _state.asStateFlow()
 
+    init {
+        savedStateHandle.get<String>(PARAM_COIN_ID)?.let { coinId ->
+            getCoinDetail(coinId)
+        }
+    }
     private fun getCoinDetail(coinId: String) {
         getSingleCoinUseCase.invoke(coinId)
             // or
