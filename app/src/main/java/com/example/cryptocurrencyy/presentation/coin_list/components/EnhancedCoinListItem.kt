@@ -80,7 +80,7 @@ fun EnhancedCoinListItem(
                 // Rank circle
                 Box(
                     modifier = Modifier
-                        .size(32.dp)
+                        .size(50.dp)
                         .clip(RoundedCornerShape(16.dp))
                         .background(MaterialTheme.colorScheme.primaryContainer),
                     contentAlignment = Alignment.Center

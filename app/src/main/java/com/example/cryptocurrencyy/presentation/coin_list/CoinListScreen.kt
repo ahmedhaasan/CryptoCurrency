@@ -29,7 +29,7 @@ fun CoinListScreen(
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier.fillMaxSize()
-                .background(Color.DarkGray)
+                .background(Color.LightGray)
                 .padding(innerPadding)
         ) {
             // case Resource is success
