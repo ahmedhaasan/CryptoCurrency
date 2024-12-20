@@ -9,6 +9,7 @@ import com.example.cryptocurrencyy.domain.use_case.get_coins.GetCoinsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -25,7 +26,7 @@ class CoinListViewModel @Inject constructor(
     private val getCoinsUseCase: GetCoinsUseCase
 ): ViewModel(){
     private  val _state = MutableStateFlow(CoinListState())
-    val state = _state.asStateFlow()
+    val state: StateFlow<CoinListState> = _state.asStateFlow()
 
     init{
         getCoins()  // when the view model is created get the coins automatically
