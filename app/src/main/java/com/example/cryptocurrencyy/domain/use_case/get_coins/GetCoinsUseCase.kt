@@ -14,7 +14,7 @@ import javax.inject.Inject
  *      the use case should have only one public function
  *      which is one major feature
  */
-class GetCoinUseCase @Inject constructor(
+class GetCoinsUseCase @Inject constructor(
     private val repository: ICoinRepository
 ) {
     operator fun invoke(): Flow<Resource<List<Coin>>> = flow {
